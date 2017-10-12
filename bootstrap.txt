@@ -1,0 +1,73 @@
+  
+  在Bootstrap框架的网格系统中带有响应式效果，其带有四种类型的浏览器（超小屏，小屏，中屏和大屏），其断点（像素的分界点）是768px、992px和1200px。
+
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+
+.col-lg(xs,sm,md,lg)-12(1-12) {
+  position: relative;   /*float在同一元素上有absolute或者fixed时无效*/
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;   /*确保所有列左浮动*/
+  width: 100%; （对应12列时的宽度，如果是其它数字相应除以12所得的百分比即                是相应的宽度）  /*定义每个列组合的宽度（使用的百分比）*/
+}
+
+
+
+//列偏移只需要在列元素上添加类名“col-md-offset-*”(其中星号代表要偏移的列组合数),其原理就是利用margin-left实现。
+
+.col-md-offset-12 {
+   margin-left: 100%;这是偏移12个列的百分比，其它数值时参照上面的不同列数                      时的宽度百分比值。对列进行向右偏移时，要保证列与偏移                     列的总数不超过12.
+}
+
+
+
+//列排序其实就是改变列的方向（哪个在前哪个在后），就是改变左右浮动，并且设置浮动的距离,通过添加类名“col-md-push-*”和“col-md-pull-*”
+
+.col-md-pull-12 {
+   right: 100%;（对应12列时的值，如果是其它数字相应除以12所得的百分比即                是相应的值）
+  }
+.col-md-push-12 {
+    left: 100%; 
+  }
+
+
+//列的嵌套
+<div class="container">
+   <div class="row">
+      <div class="col-md-6">
+        我的里面嵌套了一个网格
+          <div class="row">
+            <div class="col-md-3">col-md-3</div>
+            <div class="col-md-9">col-md-9</div>
+          </div>
+      </div>
+      <div class="col-md-6">col-md-4</div>
+   </div>
+</div>
+
